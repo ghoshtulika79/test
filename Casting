@@ -1,0 +1,170 @@
+public static void main(String[] args) {
+		// Animal animal = new Animal();
+
+		Cat cat = new Cat(); // child reference variable pointing to child object
+		cat.breathe(); // defined method in parent class
+		cat.mobility();// abstract method in parent class, defined/overidden in child class
+		cat.scratches();// extra method in the child class
+
+		System.out.println("-------------------------");
+		Snake snake = new Snake(); // child reference variable pointing to child object
+		snake.breathe();
+		snake.mobility();
+		snake.sound();
+
+		System.out.println("-------------------------");
+		Animal animal1 = new Cat(); // parent reference variable pointing to child object
+									// under what scenarios do we code like this?
+									// do we have any restrictions in accessing the members of the 
+									// parent class and child class
+									// example to illustrate the purpose of this
+
+
+		Animal animal2 = new Snake();
+//		Cat cat = new Cat(); // child reference variable pointing to child object
+//		cat.breathe(); // defined method in parent class
+//		cat.mobility();// abstract method in parent class, defined/overidden in child class
+//		cat.scratches();// extra method in the child class
+//		
+//		System.out.println("-------------------------");
+//		Snake snake = new Snake(); // child reference variable pointing to child object
+//		snake.breathe();
+//		snake.mobility();
+//		snake.sound();
+//		
+//		System.out.println("-------------------------");
+//		//Cat animal1 = new Cat();
+//		Animal animal1 = new Cat(); // parent reference variable pointing to child object
+//									// under what scenarios do we code like this?
+//									// do we have any restrictions in accessing the members of the 
+//									// parent class and child class
+//									// example to illustrate the purpose of this
+//		
+//		animal1.breathe();
+//		animal1.mobility(); // dynamic/runtime polymorphism
+//		//animal1.scratches();
+//		
+//		Animal animal2 = new Snake();
+//		animal2.breathe();
+//		animal2.mobility();
+//		//animal2.sound();
+//		
+		Exhibition exihibition = new Exhibition();
+
+//		Cat cat1 = new Cat();
+//		exihibition.exihibitCat(cat1);
+//		
+//		Snake snake1 = new Snake();
+//		exihibition.exihibitSnake(snake1);
+//				
+
+
+		// upcasting - implicit
+		// downcasting - explicit
+
+		Animal animal = new Cat(); // implicit upcasting
+		Cat cat1 = (Cat)animal; // explicit downcasting
+		Animal animal1 = cat1; // implicit upcasting
+
+		exihibition.exihibit(animal);
+
+
+
+
+	}
+ 35  src/animals/Exhibition.java 
+@@ -0,0 +1,35 @@
+package animals;
+
+public class Exhibition {
+
+
+	public void exihibit(Animal animal) {
+		animal.breathe();
+		animal.mobility();
+
+		// instanceof is an operator
+		// instanceof returns true or false
+		if(animal instanceof Cat) {
+			Cat cat = (Cat)animal;
+			cat.scratches();
+		}
+		else if(animal instanceof Snake) {
+			Snake snake = (Snake)animal;
+			snake.sound();
+		}
+	}
+//	public void exihibitCat(Cat cat) {
+//		cat.breathe();
+//		cat.mobility();
+//		cat.scratches();
+//	}
+//	
+//	public void exihibitSnake(Snake snake) {
+//		snake.breathe();
+//		snake.mobility();
+//		snake.sound();
+//	}
+//	
+
+	// 50 methods to exhibit 50 animals??
+}
+  26  src/string/StringDemo.java 
+@@ -3,8 +3,30 @@
+public class StringDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+
+		byte b = 10;
+		short s = 20;
+		int i = 30;
+		long l = 40;
+
+		float f1 = 3.2f;
+		double d1 = 1.2;
+
+		boolean flag = true;
+
+		char ch = 'd';
+
+		//Room r1 = new Room();
+		String name = new String("John");
+		String address = new String("Atlanta");
+		String message = "welcome"; // better approach
+
+		message = "hello";
+
+		String data = "hello";
+		char myCh = data.charAt(2);
+		System.out.println(myCh);
+
+	}
+
+}
+ 23  src/wrapper/WrapperDemo.java 
+@@ -0,0 +1,23 @@
+package wrapper;
+
+public class WrapperDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int marks = 40; // primitive type int
+
+		Integer myMarks = new Integer(40); //Wrapper type Integer // older code
+		Integer myMarksData = 40; // newer code // this is because of auto boxing
+
+		// work with String class
+		// work with minimum 10 methods of thw String class
+		// Explore the 8 wrapper classes
+		// Work with a few of the wrapper classes
+		// Look at auto-boxing ( in-boxing and out-boxing)
+		// Ways to convert String to other data types (int , double....)
+		// Ways to convert other data types to String
+
+	}
+
+}
